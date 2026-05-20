@@ -1,0 +1,493 @@
+:root {
+  --bg: #f5f1e8;
+  --bg-alt: #fbf8f2;
+  --panel: rgba(255, 252, 245, 0.92);
+  --panel-border: rgba(82, 66, 46, 0.12);
+  --text: #231c16;
+  --muted: #6e6255;
+  --accent: #0b7a75;
+  --accent-dark: #085a56;
+  --danger: #b2493a;
+  --shadow: 0 24px 48px rgba(49, 33, 18, 0.08);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --font-body: "Avenir Next", "Manrope", "Segoe UI", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(11, 122, 117, 0.14), transparent 24%),
+    radial-gradient(circle at right center, rgba(188, 121, 72, 0.12), transparent 28%),
+    linear-gradient(180deg, #faf5ec 0%, #f2ecdf 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.auth-shell,
+.app-shell {
+  min-height: 100vh;
+}
+
+.auth-shell {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+.auth-panel {
+  width: min(960px, 100%);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: rise-in 480ms ease-out;
+}
+
+.auth-copy {
+  padding: 48px;
+  background:
+    linear-gradient(145deg, rgba(11, 122, 117, 0.13), rgba(11, 122, 117, 0.02)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+}
+
+.auth-copy h1,
+.sidebar-brand h1,
+.page-header h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.auth-copy p,
+.page-copy,
+.sidebar-copy,
+.panel-copy {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.auth-form {
+  padding: 48px;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  background: rgba(33, 28, 22, 0.92);
+  color: #f5efe2;
+}
+
+.sidebar-brand,
+.sidebar-footer {
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-link {
+  padding: 14px 16px;
+  border-radius: 16px;
+  color: rgba(245, 239, 226, 0.88);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.sidebar-link:hover {
+  transform: translateX(4px);
+  background: rgba(11, 122, 117, 0.22);
+}
+
+.sidebar-user {
+  margin: 0;
+  color: rgba(245, 239, 226, 0.74);
+}
+
+.app-main {
+  padding: 34px;
+}
+
+.page-shell {
+  display: grid;
+  gap: 24px;
+  animation: rise-in 480ms ease-out;
+}
+
+.page-header,
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.page-header {
+  padding-bottom: 4px;
+}
+
+.eyebrow,
+.field-label,
+.detail-label,
+.stat-label {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.toolbar,
+.toolbar-form,
+.sync-button-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.toolbar-copy {
+  margin: 0;
+  max-width: 360px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.panel,
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 22px;
+}
+
+.detail-sidebar,
+.detail-card {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-card {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(251, 248, 242, 0.9);
+  border: 1px solid var(--panel-border);
+}
+
+.detail-value {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  padding: 22px;
+}
+
+.stat-value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  line-height: 1;
+}
+
+.stat-helper {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field-span-2 {
+  grid-column: span 2;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgba(82, 66, 46, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 14px 16px;
+  color: var(--text);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(11, 122, 117, 0.75);
+  box-shadow: 0 0 0 4px rgba(11, 122, 117, 0.12);
+}
+
+.textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+}
+
+.form-actions,
+.row-actions,
+.inline-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 13px 18px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--accent), #0f948d);
+  color: white;
+}
+
+.button-secondary {
+  background: rgba(35, 28, 22, 0.08);
+  color: var(--text);
+}
+
+.button-danger {
+  background: rgba(178, 73, 58, 0.12);
+  color: var(--danger);
+}
+
+.button-small {
+  padding: 10px 14px;
+  font-size: 0.92rem;
+}
+
+.button-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 15px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(82, 66, 46, 0.1);
+  vertical-align: top;
+}
+
+.data-table th {
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.empty-cell {
+  padding: 24px 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.status-pill-paid,
+.status-pill-active,
+.status-pill-completed {
+  background: rgba(11, 122, 117, 0.14);
+  color: var(--accent-dark);
+}
+
+.status-pill-unpaid,
+.status-pill-running {
+  background: rgba(188, 121, 72, 0.16);
+  color: #8e4d1f;
+}
+
+.status-pill-inactive,
+.status-pill-failed {
+  background: rgba(178, 73, 58, 0.14);
+  color: var(--danger);
+}
+
+.input-compact {
+  min-width: 220px;
+  padding: 10px 14px;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--danger);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    min-height: auto;
+  }
+
+  .auth-panel,
+  .panel-split {
+    grid-template-columns: 1fr;
+  }
+
+  .app-main,
+  .auth-copy,
+  .auth-form {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-header,
+  .panel-header,
+  .toolbar,
+  .toolbar-form,
+  .sync-button-wrap,
+  .row-actions,
+  .inline-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .grid-form,
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-span-2 {
+    grid-column: span 1;
+  }
+
+  .app-main,
+  .auth-shell {
+    padding: 16px;
+  }
+}
